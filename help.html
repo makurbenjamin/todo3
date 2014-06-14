@@ -1,0 +1,86 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Instrucciones de la práctica 3</title>
+</head>
+<body>
+  <h1>Instrucciones de la práctica 3</h1>
+  <div class="step">
+    <h2>Antes de comenzar el ejercicio</h2>
+    <p>Crear la DB desde el fichero todo-db.py</p>
+    <p>Comprobar las opciones de ejecución del servidor y las rutas definidas</p>
+    <p>Ejecutar la aplicación y comenzar a jugar con ella</p>
+  </div>
+  <div class="step">
+    <h2>Incluir templates</h2>
+    <p>Crear una plantilla footer (footer.tpl) con enlaces en el pie de la página</p>
+    <p>Incluir la plantilla footer en el resto de plantillas</p>
+    <pre>
+    % include('footer.tpl')</pre>
+    <p>Crear una plantilla message (message.tpl) para mostrar mensajes con ella</p>
+    <p>Cambiar todos los return de las funciones para devolver mensajes con dicha plantilla, p.ej.:</p>
+    <pre>
+    @error(403)
+    def mistake403(code):
+        return '&lt;p>There is a mistake in your url!&lt;/p>'</pre>
+    <pre>
+    @error(403)
+    def mistake403(code):
+        return template('message', message='There is a mistake in your url!')</pre>
+    <p>Crear una plantilla head (head.tpl) con el título y otras opciones</p>
+    <pre>
+    &lt;head>
+      &lt;title>{{title}}&lt;/title>
+    &lt;/head></pre>  
+    <p>Incluir la plantilla head en las otras plantillas</p>
+    <p>Mover todas las plantillas a la carpeta templates</p>
+  </div>
+  <div class="step">
+    <h2>Aplicar algunos estilos</h2>
+    <p>Aplicar estilos al elemento p</p>
+    <pre>
+    font-size: 10pt;
+    line-height: 12pt;</pre>
+    <p>Aplicar estilos al elemento table</p>
+    <pre>
+    font-size: 10pt;
+    line-height: 12pt;
+    border-collapse: collapse;
+    border: none;
+    width: 100%;</pre>
+    <h3>Crar el elemento style en la sección head del documento html</h3>
+    <p>Mover las reglas CSSde los atrivutos style de los elementos al elemento style creado</p>
+    <p>Aplicar estilos al elemento body</p>
+    <pre>
+    font-size: 10pt;
+    line-height: 12pt;</pre>
+    <h3>Crear un fichero CSS hoja de estilos</h3>
+    <p>Mover las reglas CSS desde el elemento style al fichero CSS</p>
+    <p>Crear ruta y función para crgar ficheros CSS estáticos</p>
+    <pre>
+    @route('/css/:filename', name='css')
+    def server_static(filename):
+        return static_file(filename, root='./css')</pre>
+    <h3>Crear asombrosas reglas CSS</h3>
+    <p>Usar un font web en la aplicación</p>
+    <ul>
+      <li>Cargar la font como un recurso externo</li>
+      <li>Aplicar ese font en las reglas CSS</li>
+    </ul>
+    <pre>
+    &lt;link href='http://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'></pre>
+    <pre>
+    font-family: 'Sintony', sans-serif;</pre>
+    <p>Usar pseudo-clases CSS</p>
+    <pre>
+    a:hover{
+      font-weight: bold;
+    }</pre>
+    <p>El camino a la interacción...</p>
+  </div>
+  <footer>
+  <p><a href="/">Show all tasks...</a></p>
+  </footer>
+
+</body>
+</html>
